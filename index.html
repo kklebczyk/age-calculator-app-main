@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100;9..144,700&family=Josefin+Sans:wght@300;400;600&family=League+Spartan:wght@400;500;700&family=Montserrat:wght@100;500&family=Poppins:ital,wght@0,700;1,400;1,800&family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+    <title>Frontend Mentor | Age calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="content">
+      <div class="container-for-header">
+        <div>
+          <span class="data">DAY</span>
+          <input class="inputs" id="day" type="number" min="1" placeholder="DD" />
+          <p class="day-paragraph"></p>
+        </div>
+        <div>
+          <span class="data">MONTH</span>
+          <input class="inputs" id="month" type="number" min="1" placeholder="MM" />
+          <p></p>
+        </div>
+        <div>
+          <span class="data">Year</span>
+          <input class="inputs" id="year" type="number" min="1" placeholder="YYYY" />
+          <p></p>
+        </div>
+        </div>
+      <div class="div-for-button">
+        <button><img src="./assets/images/icon-arrow.svg" alt=""></button>
+      </div>
+      <div class="div-for-data">
+        <p>
+          <span></span>
+          years
+        </p>
+      </div>
+      <div class="div-for-data">
+        <p>
+          <span></span>months
+        </p>
+      </div>
+      <div class="div-for-data">
+        <p>
+          <span></span>days
+        </p> 
+    </section>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/kklebczyk">KK</a>.
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
