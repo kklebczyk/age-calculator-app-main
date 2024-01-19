@@ -13,6 +13,7 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -22,14 +23,17 @@ body {
   flex-direction: column;
   background-color: var(--color-offwhite);
 }
+
 .content {
   background-color: var(--color-white);
   padding: 50px;
   border-radius: 20px 20px 130px 20px;
 }
+
 .container-for-header {
   display: flex;
 }
+
 .data {
   display: block;
   letter-spacing: 2px;
@@ -37,6 +41,7 @@ body {
   font-weight: 400;
   color: var(--smokey-grey);
 }
+
 .inputs {
   padding: 10px;
   width: 50%;
@@ -44,6 +49,7 @@ body {
   border: 2px solid var(--light-grey);
   cursor: pointer;
 }
+
 .inputs::placeholder {
   color: var(--smokey-grey);
   font-weight: bold;
@@ -76,4 +82,15 @@ button:hover {
 .div-for-data p {
   font-size: 32px;
   font-weight: bold;
+}
+
+.inputs.valid {
+  border: 1px solid red;
+}
+
+.data.valid,
+.day-paragraph.active,
+.month-paragraph.active,
+.year-paragraph.active {
+  color: red;
 }
