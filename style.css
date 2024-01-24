@@ -27,11 +27,13 @@ body {
 .content {
   background-color: var(--color-white);
   padding: 50px;
+  margin: 0 20px;
   border-radius: 20px 20px 130px 20px;
 }
 
 .container-for-header {
   display: flex;
+  margin-bottom: 50px;
 }
 
 .data {
@@ -45,6 +47,7 @@ body {
 .inputs {
   padding: 10px;
   width: 50%;
+  min-width: 80px;
   border-radius: 5px;
   border: 2px solid var(--light-grey);
   cursor: pointer;
@@ -80,7 +83,8 @@ button:hover {
 }
 
 .div-for-data p {
-  font-size: 32px;
+  font-size: 50px;
+  line-height: 50px;
   font-weight: bold;
 }
 
@@ -93,4 +97,17 @@ button:hover {
 .month-paragraph.active,
 .year-paragraph.active {
   color: red;
+  font-weight: 100;
+}
+
+#calculated-day,
+#calculated-month,
+#calculated-year {
+  color: var(--Purple);
+}
+
+@media screen and (max-width: 767px) {
+  button {
+    right: 45%;
+  }
 }
