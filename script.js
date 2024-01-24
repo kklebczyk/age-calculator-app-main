@@ -9,12 +9,11 @@ button.addEventListener("click", () => {
   const dayParagraph = document.querySelector(".day-paragraph");
   const monthParagraph = document.querySelector(".month-paragraph");
   const yearParagraph = document.querySelector(".year-paragraph");
-  // const calculatedYear = document.querySelector("#calculated-year");
-  // const calculatedMonth = document.querySelector("#calculated-month");
-  // const calculatedDay = document.querySelector("#calculated-day");
-
+  const calculatedYear = document.querySelector("#calculated-year");
+  const calculatedMonth = document.querySelector("#calculated-month");
+  const calculatedDay = document.querySelector("#calculated-day");
   //Validation for missing values
-  if (dayValue === "") {
+  if (dayValue == "") {
     dayParagraph.innerText = "This field is required";
     dayParagraph.classList.add("active");
     data.forEach((el) => el.classList.add("valid"));
@@ -57,7 +56,9 @@ button.addEventListener("click", () => {
   }
 
   //Validation for correct values
-
+  parseInt(dayValue);
+  parseInt(monthValue);
+  parseInt(yearValue);
   if (dayValue > 31) {
     dayParagraph.innerText = "Must be a valid day";
     dayParagraph.classList.add("active");
@@ -99,8 +100,8 @@ button.addEventListener("click", () => {
       }
   }
   if (leapYearSecondSituation !== 0) {
-    if (monthValue == 2)
-      if (dayValue > 29) {
+    if (monthValue == 2) {
+      if (dayValue >= 29) {
         dayParagraph.innerText = "Must be a valid day";
         dayParagraph.classList.add("active");
         data.forEach((el) => el.classList.add("valid"));
@@ -111,25 +112,32 @@ button.addEventListener("click", () => {
         data.forEach((el) => el.classList.remove("valid"));
         inputs.forEach((el) => el.classList.remove("valid"));
       }
+    }
+  }
+
+  const now = new Date();
+  const dayNow = parseInt(now.getDate());
+  const monthNow = parseInt(now.getMonth() + 1);
+  const yearNow = parseInt(now.getFullYear());
+  if (dayValue == "") {
+    calculatedDay.innerText = "--";
+  } else if (monthValue == "") {
+    calculatedMonth.innerText = "--";
+  } else if (yearValue == "") {
+    calculatedYear.innerText = "--";
+  } else {
+    if (monthValue >= monthNow && dayValue > dayNow) {
+      let yearCalculation = yearNow - yearValue - 1;
+      calculatedYear.innerText = Math.abs(yearCalculation);
+    } else {
+      let yearCalculation = yearNow - yearValue;
+      calculatedYear.innerText = Math.abs(yearCalculation);
+    }
+
+    const monthCalculation = monthNow - monthValue;
+    calculatedMonth.innerText = Math.abs(monthCalculation);
+
+    const dayCalculation = dayValue - dayNow;
+    calculatedDay.innerText = Math.abs(dayCalculation);
   }
 });
-// else {
-//     const now = new Date();
-//     const dayCalculation = parseInt(now.getDate()) - parseInt(dayValue);
-//     const monthCalculation =
-//       parseInt(now.getMonth() + 1) - parseInt(monthValue);
-//     const yearCalculation = parseInt(now.getFullYear()) - parseInt(yearValue);
-//     calculatedDay.innerText = Math.abs(dayCalculation);
-//     calculatedMonth.innerText = Math.abs(monthCalculation);
-//     calculatedYear.innerText = Math.abs(yearCalculation);
-
-//     yearParagraph.innerText = "";
-//     yearParagraph.style.color = "red";
-//     data.forEach((el) => (el.style.color = "hsl(0, 1%, 44%)"));
-//     inputs.forEach((el) => (el.style.border = "1px solid hsl(0, 0%, 86%)"));
-//     monthParagraph.innerText = "";
-//     monthParagraph.style.color = "red";
-//     dayParagraph.innerText = "";
-//     dayParagraph.style.color = "red";
-//   }
-// });
