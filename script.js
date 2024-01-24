@@ -12,6 +12,10 @@ button.addEventListener("click", () => {
   const calculatedYear = document.querySelector("#calculated-year");
   const calculatedMonth = document.querySelector("#calculated-month");
   const calculatedDay = document.querySelector("#calculated-day");
+  const now = new Date();
+  const dayNow = parseInt(now.getDate());
+  const monthNow = parseInt(now.getMonth() + 1);
+  const yearNow = parseInt(now.getFullYear());
   //Validation for missing values
   if (dayValue == "") {
     dayParagraph.innerText = "This field is required";
@@ -59,19 +63,19 @@ button.addEventListener("click", () => {
   parseInt(dayValue);
   parseInt(monthValue);
   parseInt(yearValue);
-  if (dayValue > 31) {
+  if (dayValue > 31 || dayValue == 0) {
     dayParagraph.innerText = "Must be a valid day";
     dayParagraph.classList.add("active");
     data.forEach((el) => el.classList.add("valid"));
     inputs.forEach((el) => el.classList.add("valid"));
   }
-  if (monthValue > 12) {
+  if (monthValue > 12 || monthValue == 0) {
     monthParagraph.innerText = "Must be a valid month";
     monthParagraph.classList.add("active");
     data.forEach((el) => el.classList.add("valid"));
     inputs.forEach((el) => el.classList.add("valid"));
   }
-  if (yearValue > 2024) {
+  if (yearValue > yearNow) {
     yearParagraph.innerText = "Must be in the past";
     yearParagraph.classList.add("active");
     data.forEach((el) => el.classList.add("valid"));
@@ -115,10 +119,6 @@ button.addEventListener("click", () => {
     }
   }
 
-  const now = new Date();
-  const dayNow = parseInt(now.getDate());
-  const monthNow = parseInt(now.getMonth() + 1);
-  const yearNow = parseInt(now.getFullYear());
   if (dayValue == "") {
     calculatedDay.innerText = "--";
   } else if (monthValue == "") {
